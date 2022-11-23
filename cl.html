@@ -1,0 +1,17 @@
+< html >
+  < đầu >
+    < kịch bản >
+      để  HOST  =  vị trí . nguồn gốc . thay thế ( / ^ http / ,  'ws' )
+      hãy để  ws  =  WebSocket mới  ( HOST ) ;
+      để  cho ;
+
+      ws . onmessage  =  ( sự kiện )  =>  {
+        el  =  tài liệu . getElementById ( 'thời gian máy chủ' ) ;
+        el . innerHTML  =  'Thời gian máy chủ:'  +  sự kiện . dữ liệu ;
+      } ;
+    </ tập lệnh >
+  </ đầu >
+  < cơ thể >
+    < p  id =" server-time " > </ p >
+  </ cơ thể >
+</ html >
