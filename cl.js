@@ -25,3 +25,10 @@ wss://api-mini.bwbay9sockg.com/websocket
 [1,"MiniGame","","",{"agentId":"1","accessToken":"37-59b15392197f421530175706e6824387","reconnect":false}]
 [6,"MiniGame","lobbyPlugin",{"cmd":10001}]
 ["7", "MiniGame", "1",1]
+
+----
+["6", "MiniGame", "taixiuPlugin", {"cmd": 1005}]
+["7", "MiniGame", "1",9]
+["6","MiniGame","taixiuPlugin",{"cmd":1006,"gid":100}]
+["6","MiniGame","taixiuPlugin",{"cmd":1006,"gid":100}]
+["7", "MiniGame", "1",10]
