@@ -5,7 +5,7 @@ mongoose.set('useCreateIndex',   true);
 mongoose.connect(process.env.MONGODB_URL, configDB.options); // kết nối tới database
 username = username.toLowerCase();
 User.create({'local.username':username, 'local.password':helpers.generateHash(password), 'local.regDate': new Date()}, 
-
+UserInfo.create({'id':client.UID, 'name':name, 'joinedOn':new Date()}
 var HOST = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(HOST);
 var el;
