@@ -12,7 +12,7 @@
   },
 	"dependencies": {
 "mongoose-auto-increment-reworked": "^1.2.1",
-		"mongoose-long": "^0.2.1",
+"mongoose-long": "^0.2.1",
 "mongoose": "^5.7.1"
  },
 	"devDependencies": {
