@@ -1,6 +1,17 @@
-let User      = require('./app/Models/Users');
-let UserInfo  = require('./app/Models/UserInfo');
+let User      = require('Users');
+let UserInfo  = require('cl');
+let mongoose = require('mongoose');
+require('mongoose-long')(mongoose); // INT 64bit
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex',   true);
+mongoose.connect(process.env.MONGODB_URL, {
+		'dbName': 'RVIP', // red
+		'useNewUrlParser': true,
+		'useUnifiedTopology': true,
+}); // kết nối tới database
 username='a1234556';
+username = username.toLowerCase();
+
 password='12345678';
 name='@123456';
 let txtTH = new Date()+'';
