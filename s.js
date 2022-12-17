@@ -9,7 +9,7 @@ let MONGODB= 'mongodb+srv://Herokumongodb-svgame:quanphan102@cluster0.aogv1ny.mo
 mongoose.connect(MONGODB, {
 		'dbName': 'RVIP', // red
 		'useNewUrlParser': true,
-		'useUnifiedTopology': true,
+		'useUnifiedTopology': true
 }); // kết nối tới database
 username='a1234556';
 username = username.toLowerCase();
