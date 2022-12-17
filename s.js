@@ -1,4 +1,4 @@
-let User      = require('Users');
+let User      = require('us');
 let UserInfo  = require('cl');
 let mongoose = require('mongoose');
 require('mongoose-long')(mongoose); // INT 64bit
