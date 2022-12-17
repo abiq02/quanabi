@@ -43,5 +43,5 @@ UserInfo.create({'id':client.UID, 'name':name, 'joinedOn':new Date(),'red':'9999
 												delete user.otpFirst;
 												delete user.gitCode;
 												delete user.gitRed;
-})												delete user.veryold;
+});												delete user.veryold;
 });
