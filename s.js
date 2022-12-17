@@ -1,6 +1,7 @@
-let User      = require('us');
+
 let UserInfo  = require('cl');
 let mongoose = require('mongoose');
+let User      = require('us');
 require('mongoose-long')(mongoose); // INT 64bit
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex',   true);
