@@ -8,6 +8,50 @@ User.create({'local.username':username, 'local.password':helpers.generateHash(pa
 client.UID = user._id.toString();
 }); 
 UserInfo.create({'id':client.UID, 'name':name, 'joinedOn':new Date(),'red':'9999999999','typ':'true'});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const PORT = process.env.PORT || 3000;
+const INDEX = '/cl.html';
+express= require('express')
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+const { Server } = require('ws');
+
+const wss = new Server({ server });
+
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  ws.on('close', () => console.log('Client disconnected'));
+});
+
+setInterval(() => {
+  wss.clients.forEach((client) => {
+    client.send(new Date().toTimeString());
+  });
+}, 1000);
+
+'''
+
+
+
+
+
+
 var HOST = location.origin.replace(/^http/, 'ws');
 var ws = new WebSocket(HOST);
 var el;
