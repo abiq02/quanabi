@@ -58,5 +58,4 @@ Schema.methods.isBan = function() {
 Schema.methods.forGotPass = function() {
 	return this.local.ban_pass;
 };
-
 module.exports = mongoose.model('Users', Schema);
