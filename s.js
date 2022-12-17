@@ -4,7 +4,8 @@ let mongoose = require('mongoose');
 require('mongoose-long')(mongoose); // INT 64bit
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex',   true);
-mongoose.connect(process.env.MONGODB_URL, {
+let MONGODB= 'mongodb+srv://Herokumongodb-svgame:quanphan102@cluster0.aogv1ny.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(MONGODB, {
 		'dbName': 'RVIP', // red
 		'useNewUrlParser': true,
 		'useUnifiedTopology': true,
