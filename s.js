@@ -24,3 +24,4 @@ UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date()}, function(errC
 
 });
 });
+console.log("OK");
