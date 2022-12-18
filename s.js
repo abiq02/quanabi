@@ -12,10 +12,11 @@ let bpassword = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(12), null)
 }
 for(let i=0;i<= 52;i++){
- taobot(i);
+      taobot(i);
 
 }
-function taobot(i){
+let client= " aBi ";
+let taobot = function (i){
        username='botgame' + i;
        username = username.toLowerCase();
 let User      = require('./us');
@@ -26,10 +27,10 @@ let UserInfo  = require('./cl');
        let txtTH = new Date()+'';
        let token = bpassword(txtTH);
        console.log("OK"+i);
-       let client= "";
+       
        User.create({'local.username':username, 'local.password':bpassword(password), 'local.regDate': new Date()}, function(err, user){
            client= user._id.toString();
-           console.log("OK" +i+ client);
+           console.log("OK " + client);
             });
        UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date(),'red':999999999999,'type':true}, function(errC, user){
            console.log("OK " + name +errC);
