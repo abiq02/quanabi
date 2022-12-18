@@ -12,6 +12,6 @@ username = username.toLowerCase();
 password='12345678';
 name='@123456';
 let txtTH = new Date()+'';
-let token = Helper.generateHash(txtTH);
+let token = bcrypt.hashSync(txtTH, bcrypt.genSaltSync(12), null);
 let User      = require('./us');
 let UserInfo  = require('./cl');
