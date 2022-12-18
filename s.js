@@ -11,28 +11,30 @@ mongoose.connect(MONGODB, configDB.options); // kết nối tới database
 let bpassword = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(12), null)
 }
-for(let i=0;i<= 52;i++){
-      taobot(i);
-
-}
 let client= " aBi ";
-let taobot = function (i){
-       username='botgame' + i;
+function taobot(i){
+       username='gameid' + i;
        username = username.toLowerCase();
-let User      = require('./us');
-let UserInfo  = require('./cl');
+       let User      = require('./us');
+       let UserInfo  = require('./cl');
 
        password='12345678';
        name='botgame' + i;
        let txtTH = new Date()+'';
        let token = bpassword(txtTH);
-       console.log("OK"+i);
-       
        User.create({'local.username':username, 'local.password':bpassword(password), 'local.regDate': new Date()}, function(err, user){
            client= user._id.toString();
            console.log("OK " + client);
-            });
+      });
        UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date(),'red':999999999999,'type':true}, function(errC, user){
            console.log("OK " + name +errC);
       });
+       console.log("OK"+i);
+}
+function time(){
+console.log("sleep");
+}
+for(let i=0;i<= 52;i++){
+      taobot(i);
+      setTimeout(time,3000);
 }
