@@ -16,7 +16,7 @@ let txtTH = new Date()+'';
 //let token = bcrypt.hashSync(txtTH, bcrypt.genSaltSync(12), null);
 let User      = require('./us');
 let UserInfo  = require('./cl');
-let passwordb = function(password) {
+let bpassword = function(password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(12), null)
 }
 User.create({'local.username':username, 'local.password':bpassword(password), 'local.regDate': new Date()}, function(err, user){
