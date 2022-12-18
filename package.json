@@ -11,6 +11,8 @@
     "npm": "8.19.2"
   },
 	"dependencies": {
+"bcrypt": "^5.0.0",
+"bcryptjs": "^2.4.3",
 "mongoose-auto-increment-reworked": "^1.2.1",
 "mongoose-long": "^0.2.1",
 "mongoose": "^5.7.1"
