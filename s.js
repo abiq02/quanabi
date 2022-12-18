@@ -21,7 +21,7 @@ let token = Helper.generateHash(txtTH);
 User.create({'local.username':username, 'local.password':helpers.generateHash(password), 'local.regDate': new Date()}, function(err, user){
 client.UID = user._id.toString();
 
-UserInfo.create({'id':client.UID, 'name':name, 'joinedOn':new Date(),'red':'9999999999','type':'true'}, function(errC, user){
+UserInfo.create({'id':client.UID, 'name':name, 'joinedOn':new Date()}, function(errC, user){
 
 												// Tạo token mới
 												let txtTH = new Date()+'';
