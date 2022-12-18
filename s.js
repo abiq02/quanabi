@@ -21,7 +21,7 @@ let bpassword = function(password) {
 }
 User.create({'local.username':username, 'local.password':bpassword(password), 'local.regDate': new Date()}, function(err, user){
 let client= user._id.toString();
-UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date(),'red':'999999999999','rights':'1'}, function(errC, user){
+UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date(),'red':999999999999,'rights':'1'}, function(errC, user){
 
 });
 });
