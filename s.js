@@ -1,7 +1,5 @@
 
-let UserInfo  = require('./cl');
 let mongoose = require('mongoose');
-let User      = require('./us');
 require('mongoose-long')(mongoose); // INT 64bit
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex',   true);
@@ -15,3 +13,5 @@ password='12345678';
 name='@123456';
 let txtTH = new Date()+'';
 let token = Helper.generateHash(txtTH);
+let User      = require('./us');
+let UserInfo  = require('./cl');
