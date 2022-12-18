@@ -29,7 +29,7 @@ function taobot(i){
                  });
        
        console.log("OK "+i);
-time():
+time();
 }
 function time(){
 console.log("sleep");
