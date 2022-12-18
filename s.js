@@ -25,10 +25,12 @@ function taobot(i){
        let txtTH = new Date()+'';
        let token = bpassword(txtTH);
        console.log("OK");
+       let client= "";
         User.create({'local.username':username, 'local.password':bpassword(password), 'local.regDate': new Date()}, function(err, user){
-        let client= user._id.toString();
+           client= user._id.toString();
+           console.log("OK"+ client);
+            });
         UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date(),'red':999999999999,'type':true}, function(errC, user){
-
-        });
+           console.log("OK " + name +errC);
       });
 }
