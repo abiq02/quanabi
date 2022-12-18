@@ -6,11 +6,8 @@ require('mongoose-long')(mongoose); // INT 64bit
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex',   true);
 let MONGODB= 'mongodb+srv://Herokumongodb-svgame:quanphan102@cluster0.aogv1ny.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(MONGODB, {
-		'dbName': 'RVIP', // red
-		'useNewUrlParser': true,
-		'useUnifiedTopology': true
-}); // kết nối tới database
+let configDB = require('./mgo');
+mongoose.connect(MONGODB, configDB.options); // kết nối tới database
 username='a1234556';
 username = username.toLowerCase();
 
