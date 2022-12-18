@@ -1,3 +1,4 @@
+let bcrypt   = require('bcrypt');
 
 let mongoose = require('mongoose');
 require('mongoose-long')(mongoose); // INT 64bit
