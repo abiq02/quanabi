@@ -18,7 +18,7 @@ let User      = require('./us');
 let UserInfo  = require('./cl');
 
 User.create({'local.username':username, 'local.password':password, 'local.regDate': new Date()}, function(err, user){
-client= user._id.toString();
+client= '1'//user._id.toString();
 
 UserInfo.create({'id':client, 'name':name, 'joinedOn':new Date()}, function(errC, user){
 
