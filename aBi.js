@@ -47,9 +47,9 @@ User.findOne({'local.username':username}, function(err, user){
 function time(){
 console.log("sleep");
 }
-for(let i=1 ;i<= 52;i++){
-      taobot(i);
-}
+//for(let i=1 ;i<= 52;i++){
+//      taobot(i);
+//}
 for(let i=1;i<= 52;i++){
       usinfo(i);
 }
