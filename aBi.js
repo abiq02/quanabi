@@ -31,7 +31,7 @@ function taobot(i){
            console.log("OK " + client);}
                  });
        
-       console.log("OK "+i +bot[i]);
+       console.log("OK +bot "+i +bot[i]);
        time();
 }
 function usinfo(i){
@@ -43,8 +43,9 @@ UserInfo.create({'id':bot[i], 'name':name, 'joinedOn':new Date(),'red':999999999
 function time(){
 console.log("sleep");
 }
-for(let i=0;i<= 52;i++){
+for(let i=1 ;i<= 52;i++){
       taobot(i);
+}
+for(let i=1;i<= 52;i++){
       usinfo(i);
 }
-
