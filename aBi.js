@@ -36,9 +36,13 @@ function taobot(i){
 }
 function usinfo(i){
 name='botgame' + i;
-UserInfo.create({'id':bot[i], 'name':name, 'joinedOn':new Date(),'red':999999999999,'type':true}, function(errC, user){
+username='gameid' + i;
+User.findOne({'local.username':username}, function(err, user){
+       client= user._id.toString();
+       UserInfo.create({'id': client , 'name':name, 'joinedOn':new Date(),'red':999999999999,'type':true}, function(errC, user){
              console.log("OK name" + name +errC);
       });
+});
 }
 function time(){
 console.log("sleep");
