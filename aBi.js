@@ -15,12 +15,12 @@ let client= " aBi ";
 let bot = [52];
        let txtTH = new Date()+'';
        let token = bpassword(txtTH);
-
+       let User      = require('./us');
+       let UserInfo  = require('./cl');
 function taobot(i){
        username='gameid' + i;
        username = username.toLowerCase();
-       let User      = require('./us');
-       let UserInfo  = require('./cl');
+
 
        password='12345678';
        name='botgame' + i;
