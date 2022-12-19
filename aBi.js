@@ -49,7 +49,10 @@ console.log("sleep");
 }
 //for(let i=1 ;i<= 52;i++){
 //      taobot(i);
-//}
+//
+usinfo(5);
+usinfo(6);
+
 for(let i=1;i<= 52;i++){
       usinfo(i);
 }
