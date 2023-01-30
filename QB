@@ -1,6 +1,6 @@
 0611001924974 IW36W822739
 
-import os , json, re, sys, time
+import os , json, re, sys, time ,random
 import requests
 import websocket
 from hashlib import md5
@@ -101,7 +101,7 @@ def login_web(headers , data , ws ):
   session_id=ss.json()['session_id']
   url_ss = f'{url2}/?sessionid={session_id}&a=IWIN'
   ssion = requests.get(url_ss)
-  time.sleep(30)
+  
   api_gw= requests.get('https://gateway-api.iwigate-up.com/gwms/v1/verifytoken.aspx?token='+session_id+'&fg=' + ipg)
   ssid = _mssid()
   data1 ={
@@ -127,9 +127,10 @@ def login_web(headers , data , ws ):
   }
   req = requests.post(url_apiv2,headers = headers1, data = data1)
   gw_api = api_gw.json()
+  print(time.ctime())
   if (gw_api['status'] == 'OK' ):
     print( gw_api['data'][0]['main_balance'])
-    
+    time.sleep(22)
     loadsio(ssid,gw_api['data'][0]['token'])
     load_ws(ws, gw_api['data'][0]['token'],gw_api['data'][0]['main_balance'])
 
@@ -155,8 +156,7 @@ def load_wscardgame(ws, wss, token):
   sendms(ws, '[6,"Simms","channelPlugin",{"cmd":310}]')
   sendms(ws, '[6,"Simms","channelPlugin",{"cmd":"306","subi":true}]')
   sendms(ws, '[6,"Simms","channelPlugin",{"cmd":310}]')
-  sendms(ws, '["7", "Simms", "1",1]')
-  sendms(ws, '["7", "Simms", "1",1]')
+
 def load_wsminigame(ws,wsc, wss, token, status):
   ws.connect(wss)
   sendms(ws,'[ 1 , "MiniGame" , "" , "" , { "agentId" : "1" , "accessToken" : "'+token+'" , "reconnect" : false } ]')
@@ -164,30 +164,30 @@ def load_wsminigame(ws,wsc, wss, token, status):
   sendms(ws,'["7", "MiniGame", "1",1]')
   sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3012,"iM":false}]')
   sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3000}]')
-
+  sendms(wsc, '["7", "Simms", "1",1]')
+  sendms(wsc, '["7", "Simms", "1",1]')
   recvms(ws, wsc, status)
 def sleep1s():
-  time.sleep(0,2)
+  time.sleep(1)
 def exit(wsc,wsm):
-  
-  sendms(wsc,'[6,"Simms","channelPlugin",{"cmd":"306","subi":true}]')
-  sleep1s()
-  sendms(wsc, '[6,"Simms","channelPlugin",{"cmd":310}]')
-  sleep1s()
-  #-----
   sendms(wsm,'["6","MiniGame","shakeDiskPlugin",{"cmd":3013,"iM":false}]')
-  sleep1s()
   sendms(wsm,'["6","MiniGame","shakeDiskPlugin",{"cmd":3001}]')
-def connecxx(ws):
+  sendms(wsc,'[6,"Simms","channelPlugin",{"cmd":"306","subi":true}]')
+  sendms(wsc, '[6,"Simms","channelPlugin",{"cmd":310}]')
+  #-----
+
+  
+def connecxx(ws,wsc):
   sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3012,"iM":false}]')
   sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3000}]')
+  sendms(wsc, '[6,"Simms","channelPlugin",{"cmd":310}]')
 def sendms(ws, text):
   ws.send(text)
   ws.recv()
 
-b =[]
-slenh = 3 # chờ  - - - - -
-bclick_gold = [2,4]
+b =[52]
+slenh = 8 # chờ  - - - - -
+bclick_gold = [1,2,4,8]
 btalk = ["alo","heloo","all","win","520","love"]
 btime =2
 def re_rs(rc):
@@ -214,17 +214,35 @@ def eid_():
   #f'["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":100,"sid":{sid},"aid":1,"eid":{eid}}}]'
   return eid
 def onclick(ws ,wsc ,bclick_ ,sid , eid , bgold ):
-  golda = 2
+  golda = 9999999999999
+  breclick = False
   if bclick_ -1 < len(bclick_gold) :
+    breclick = False
     print (f"bclick---{bclick_gold[bclick_ -1 ]} eid {eid}")
     for on_click in range(bclick_gold[bclick_ -1 ]) :
-#["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":100,"sid":729955,"aid":1,"eid":2}] 
-      sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":1000,"sid":'+str(sid)+',"aid":1,"eid":'+str(eid)+'}]') #lẻ
-      golda = wsc.recv()
       time.sleep(2)
-    print(golda)
+#["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":100,"sid":729955,"aid":1,"eid":2}] 
+      sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":5000,"sid":'+str(sid)+',"aid":1,"eid":'+str(eid)+'}]') #lẻ
+      golda = wsc.recv()
+    print (golda)
   else :
+    breclick = True
     print('loads @@')
+  if breclick :
+    if bclick_ -1 == len(bclick_gold) + len(bclick_gold) :
+      breclick = False
+      bclick_ = bclick_ - 1 - len(bclick_gold)
+      print (f"bclick---{bclick_gold[bclick_]} eid {eid}")
+      for on_click in range(bclick_gold[bclick_]) :
+        time.sleep(2)
+  #["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":100,"sid":729955,"aid":1,"eid":2}] 
+        sendms(ws,'["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":5000,"sid":'+str(sid)+',"aid":1,"eid":'+str(eid)+'}]') #lẻ
+        golda = wsc.recv()
+      print (golda)
+    else:
+      breclick = False
+      print(f'loads @@  {bclick_}') 
+  
 #[2, 2, 5, 5, 5, 5, 5, 2]
 #--set chip click eid = 2 đỏ DDTT || eid =5 
 def recvms(wsm,wsc, Bcoin):
@@ -233,41 +251,53 @@ def recvms(wsm,wsc, Bcoin):
   inext = 1
   bwait = 1
   bq = 52
+  bsid = 2
+  bwin = True
+  reeid = 52
   while True:
     itime  =itime + 1
     rc = wsm.recv()
     #print (rc)
   #  bgold = wsc.recv()
 #   print (bgold)
-#
     cr = json.loads(rc)
     if '"rs"' in rc : #{DDTT}
       reeid = re_rs(cr[1]["rs"])
       
       #print(f'{cr[1]["rs"]} {reeid}')
-      if len(b) != 0 :
-        if reeid == eid_() :
-          bclick = 1
-        if "wm" in cr[1]:
-          if cr[1]["wm"] != 0 :
-            print('win ' + str(cr[1]["wm"])) #"wm":396
+      if reeid == eid_():
+        print('eid')
+        bclick = 1
+      if "wm" in cr:
+        if cr[1]["wm"] != 0 :
+          print('win ' + str(cr[1]["wm"])) #"wm":396
               
     if '"cmd":3005' in rc or '"tJpVT2":0' in rc :
-      #print(f'sid :{cr[1]["sid"]} ,md5 :{cr[1]["md5"]}')#ssid
+      print(f'sid :{cr[1]["sid"]} ,md5 :{cr[1]["md5"]} ,reeid :{reeid}')#ssid
       bwait = bwait + 1
-      if bwait == 22:
-        bwait = 1
-        talk = '["6","MiniGame","shakeDiskPlugin",{"cmd":3008,"mgs":"'+btalk[2]+'"}]'
+      bsid= bsid + 1
+      if bwait == 52 :
+        bwait = random.randint(0,len(btalk) -1)
+        talk = '["6","MiniGame","shakeDiskPlugin",{"cmd":3008,"mgs":"'+btalk[bwait]+'"}]'
         sendms(wsm, talk)
+        bwait = 1
       #print(b)
       if len(b) > slenh :
         if check():
           onclick(wsm,wsc, bclick ,cr[1]["sid"] ,eid_() ,100)
           bclick = bclick + 1
+          bsid = 2
           
-          #print(f"bclick {bclick -1} ")
-        else: 
+          #print(f"bclick {bclick-1} ")
+        else:
           bclick = 1
+      if bsid == 22:
+        sendms(wsm,'["6","MiniGame","shakeDiskPlugin",{"cmd":3002,"b":100,"sid":'+str(cr[1]["sid"])+',"aid":1,"eid":'+str(eid_() )+'}]') #
+        golda = wsc.recv()
+        print (golda)
+        time.sleep(2)
+        bsid = 2
+        print('aBi connection a')
     #print('load ++')
     if itime == 15 :
       inext =inext + 1
@@ -276,4 +306,3 @@ def recvms(wsm,wsc, Bcoin):
       sendms(wsm,f'["7", "MiniGame", "1",{inext}]')
       sendms(wsc,f'["7", "Simms", "1",{inext}]')
 load_main()
-
