@@ -3,7 +3,7 @@ deroi1qyr8wnk9aw9lel0xcufdj98cqtd3lc5y84nhl679nm3wknaz0ad6xq9pvfz92xnj7qh7yxzj9z
 community-pools.mysrv.cloud:10300
 
 
-
+./astrominer -w deroi1qyr8wnk9aw9lel0xcufdj98cqtd3lc5y84nhl679nm3wknaz0ad6xq9pvfz92xnj7qh7yxzj9zx -p rpc -r community-pools.mysrv.cloud:10300 
 
  Ai
 const PORT = process.env.PORT || 3000;
