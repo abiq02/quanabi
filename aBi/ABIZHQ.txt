@@ -1,0 +1,24 @@
+import requests
+
+
+headers = {
+    'authority': 'gateway-api.gwywingz.net',
+    'accept': '*/*',
+    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+    'content-type': 'text/plain;charset=UTF-8',
+    'origin': 'https://play.iwin10.club',
+    'referer': 'https://play.iwin10.club/',
+    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'cross-site',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+}
+
+
+data = '{"username":"A2","password":"a23123","app_id":"iwin.club","os":"Android","device":"Phone","browser":"chrome","fg":"ee40c5455fd3bf5f48cbaa83d6ca64b3","aff_id":"iwin"}'
+
+
+response = requests.post('https://gateway-api.gwywingz.net/user/login.aspx', headers=headers, data=data)
