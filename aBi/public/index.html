@@ -14,8 +14,13 @@
     <input type="text" id = "mge"/>
     <button id = "click">aaaaaaa</button>
    <script>
-     ws = new WebSocket("wss://bzzhh.onrender.com/");
-     console.log("hello");
+    var ws = new WebSocket("wss://bzzhh.onrender.com/");
+    ws.onopen = function (a){
+      console.log("hello");
+    };
+    ws.onmessage = function(data){
+      console.log(data.data);
+    };
    </script>
     
   </body>
