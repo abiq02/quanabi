@@ -9,8 +9,9 @@ app.ws('/', function (a){
   console.log("connec");
   a.on('message', message => {
     console.log(message);
+    a.send('message');
   });
-  a.send('message');
+
 });
 app.listen(port, function() {
     console.log("Server listen on port ", port);
