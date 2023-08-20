@@ -10,6 +10,7 @@ app.ws('/', function (a){
   a.on('message', message => {
     console.log(message);
   });
+  a.send('message');
 });
 app.listen(port, function() {
     console.log("Server listen on port ", port);
