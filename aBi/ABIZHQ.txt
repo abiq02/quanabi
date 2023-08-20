@@ -25,6 +25,9 @@ response = requests.post('https://gateway-api.gwywingz.net/user/login.aspx', hea
 
 wss://api-card.iwsockapigams.com/websocket
 
+wss://api-mini.iwsockapigams.com/websocket
+
+
 import requests
 
 headers = {
