@@ -7,11 +7,9 @@ let wss = expressWs.getWss();
 require('./app')(wss);
 app.ws('/', function (a){
   console.log("connec");
-});
   app.on("message", function(message){
     console.log(message);
-});
-  };
+  });
 });
 app.listen(port, function() {
     console.log("Server listen on port ", port);
