@@ -6,7 +6,7 @@ app.use(express.static('public/'));
 let wss = expressWs.getWss();
 require('./app')(wss);
 app.ws('/', function (a){
-  console.log(expressWs.getWss());
+  console.log("connec");
 });
 app.listen(port, function() {
     console.log("Server listen on port ", port);
