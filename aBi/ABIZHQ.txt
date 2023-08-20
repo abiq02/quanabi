@@ -22,3 +22,5 @@ data = '{"username":"A2","password":"a23123","app_id":"iwin.club","os":"Android"
 
 
 response = requests.post('https://gateway-api.gwywingz.net/user/login.aspx', headers=headers, data=data)
+
+wss://api-card.iwsockapigams.com/websocket
