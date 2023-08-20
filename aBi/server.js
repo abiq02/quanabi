@@ -7,7 +7,7 @@ let wss = expressWs.getWss();
 require('./app')(wss);
 app.ws('/', function (a){
   console.log("connec");
-  app.on('message', message => {
+  a.on('message', message => {
     console.log(message);
   });
 });
