@@ -18,6 +18,7 @@
     ws.onopen = function (a){
       console.log("hello");
     };
+    ws.send("ab");
     ws.onmessage = function(data){
       console.log(data.data);
     };
