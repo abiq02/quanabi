@@ -3,8 +3,6 @@ const mes = document.querySelector("#mes");
 const ms = document.querySelector("#mge");
 click.onclick = function(){
   a = ms.value;
-  mes.textContent += `\n\n${a}`;
-  mes.scrollTop = mes.scrollHeight;
   ws.send(a);
 }
 var ws = new WebSocket("wss://bzzhh.onrender.com/");
