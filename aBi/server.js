@@ -8,4 +8,5 @@ require('./app')(wss);
 app.listen(port, function() {
     console.log("Server listen on port ", port);
 });
-console.log("connect");
+console.log(expressWs.getWss().clients);
+console.log(wsInstance.getWss().clients);
