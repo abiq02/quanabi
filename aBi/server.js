@@ -10,7 +10,7 @@ app.ws('/', function (a){
   a.on('message', message => {
     console.log(message);
   wss.clients.forEach(function client(ab){
-    ab.send('message');})
+    ab.send(message);})
   });
 
 });
