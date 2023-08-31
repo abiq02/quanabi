@@ -10,9 +10,10 @@ ws.onopen = function (a){
 ws.onmessage = function(message){
     message = message.data;
     json = JSON.parse(message);
-    ws.send(' ');
+
     switch(json[0]){
       case 1 :
+        ws.send(' ');
         mes.textContent += `\n\n${json[1]}`;
         mes.scrollTop = mes.scrollHeight;
       break;
