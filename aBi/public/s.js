@@ -2,7 +2,7 @@ const label = document.querySelector("#mge");
 const mes = document.querySelector("#mes");
 const ms = document.querySelector("#inn");
 
-const ws = new WebSocket("wss://bzzhh.onrender.com/");
+const ws = new WebSocket("wss://bzzhh.onrender.com/websocket");
 
   ws.onopen = function (a){
     console.log("hello");
@@ -11,6 +11,7 @@ const ws = new WebSocket("wss://bzzhh.onrender.com/");
   ws.onmessage = function(message){
     message = message.data;
     json = JSON.parse(message);
+    ws.send('@@')
     switch(json[0]){
       case 1 :
         mes.textContent += `\n\n${json[1]}`;
