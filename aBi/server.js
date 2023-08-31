@@ -4,8 +4,8 @@ let port       = process.env.PORT || 80;
 let expressWs  = require('express-ws')(app);
 app.use(express.static('public/'));
 let wss = expressWs.getWss();
-require('./app')(wss);
-app.ws('/', function (a){
+
+app.ws('/websocket', function (a){
   console.log("connec");
   a.on('message', message => {
     console.log(message);
